@@ -26,7 +26,7 @@
          version="0.0.0"
          unpack="false"/>
 
-   <plugin
+   <!-- plugin
          id="org.eclipse.equinox.launcher.cocoa.macosx.x86_64"
          os="macosx"
          ws="cocoa"
@@ -84,7 +84,7 @@
          download-size="0"
          install-size="0"
          version="0.0.0"
-         fragment="true"/>
+         fragment="true"/ -->
 
    <plugin
          id="org.eclipse.equinox.launcher.win32.win32.aarch64"
@@ -96,7 +96,7 @@
          version="0.0.0"
          fragment="true"/>
 
-   <plugin
+   <!-- plugin
          id="org.eclipse.equinox.launcher.win32.win32.x86_64"
          os="win32"
          ws="win32"
@@ -104,6 +104,6 @@
          download-size="0"
          install-size="0"
          version="0.0.0"
-         fragment="true"/>
+         fragment="true"/ -->
 
 </feature>
