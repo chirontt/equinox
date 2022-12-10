@@ -11,6 +11,30 @@
 	</exec>
 </target>
 
+<!-- build Eclipse natives using cross-compilation between 'x64' and/or 'arm64' host/target -->
+<target name="build_xc_eclipse" if="build-natives">
+	<!-- these properties are not overwritten if already set, e.g. as CLI arguments.
+		 If they have their default values below, this target behaves the same as "build_eclipse" above.
+	-->
+	<property name="xc_host_target" value=""/> <!-- either "x64_arm64" or "arm64_x64" for actual cross-compilation -->
+	<property name="target_java_home" value="${java.home}"/>
+	<property name="target_os_arch" value="${arch}"/>
+	<property name="msvc_version" value="2022"/>
+
+	<echo>Cross-compiling Eclipse launcher natives:</echo>
+	<echo>  - using compiler environment setup: "${xc_host_target}"</echo>
+	<echo>  - with MSVC version: "${msvc_version}"</echo>
+	<echo>  - for target arch: "${target_os_arch}"</echo>
+	<echo>  - against JNI headers from target JDK: "${target_java_home}"</echo>
+	<exec dir="." executable="${basedir}\build.bat">
+		<env key="XC_HOST_TARGET" value="${xc_host_target}"/>
+		<env key="MSVC_VERSION" value="${msvc_version}"/>
+		<arg line="-arch ${target_os_arch}"/>
+		<arg line="-java ${target_java_home}"/>
+		<arg line="install"/>
+	</exec>
+</target>
+
 <target name="clean" if="build-natives">
 	<tstamp/>
 	<exec dir="." executable="${basedir}\build.bat">
