@@ -188,7 +188,7 @@ public class StructuredTextEnvironment {
 			if (osName != null)
 				osName = osName.toLowerCase();
 			boolean supportedOS = osName.startsWith("windows") || osName.startsWith("linux") //$NON-NLS-1$ //$NON-NLS-2$
-					|| osName.startsWith("mac"); //$NON-NLS-1$
+					|| osName.startsWith("mac") || osName.startsWith("freebsd"); //$NON-NLS-1$ //$NON-NLS-2$
 			if (supportedOS) {
 				// Check whether the current language uses a bidi script (Arabic, Hebrew, Farsi
 				// or Urdu)
