@@ -14,6 +14,7 @@
  *	   Markus Schorn (Wind River Systems), bug 193340
  *	   Martin Oberhuber (Wind River) - [149994] Add --launcher.appendVmargs
  *	   Rapicorp, Inc - Bug 461728 - [Mac] Allow users to specify values in eclipse.ini outside of the installation
+ *	   Tue Ton - support for FreeBSD
  *******************************************************************************/
 
 /* Eclipse Program Launcher
@@ -217,7 +218,7 @@ static _TCHAR* startupMsg =
 _T_ECLIPSE("The %s executable launcher was unable to locate its \n\
 companion launcher jar.");
 
-#ifdef LINUX
+#if defined(LINUX) || defined(FREEBSD)
 static _TCHAR* gtk2Msg =
 _T_ECLIPSE("The %s executable launcher no longer supports running with GTK + 2.x. Continuing using GTK+ 3.x.");
 #endif
@@ -1267,16 +1268,16 @@ static _TCHAR* getDefaultOfficialName()
 	}
 #endif
 	/* Upper case the first character */
-#ifndef LINUX
-	{
-		*ch = _totupper(*ch);
-	}
-#else
+#if defined(LINUX) || defined(FREEBSD)
 	{
 		if (*ch >= 'a' && *ch <= 'z')
 		{
 			*ch -= 32;
 		}
+	}
+#else
+	{
+		*ch = _totupper(*ch);
 	}
 #endif
 	return ch;
