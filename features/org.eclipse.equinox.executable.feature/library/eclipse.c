@@ -216,7 +216,7 @@ static _TCHAR* startupMsg =
 _T_ECLIPSE("The %s executable launcher was unable to locate its \n\
 companion launcher jar.");
 
-#ifdef LINUX
+#if defined(LINUX) || defined(FREEBSD)
 static _TCHAR* gtk2Msg =
 _T_ECLIPSE("The %s executable launcher no longer supports running with GTK + 2.x. Continuing using GTK+ 3.x.");
 #endif
@@ -1293,16 +1293,16 @@ static _TCHAR* getDefaultOfficialName()
 	}
 #endif
 	/* Upper case the first character */
-#ifndef LINUX
-	{
-		*ch = _totupper(*ch);
-	}
-#else
+#if defined(LINUX) || defined(FREEBSD)
 	{
 		if (*ch >= 'a' && *ch <= 'z')
 		{
 			*ch -= 32;
 		}
+	}
+#else
+	{
+		*ch = _totupper(*ch);
 	}
 #endif
 	return ch;
