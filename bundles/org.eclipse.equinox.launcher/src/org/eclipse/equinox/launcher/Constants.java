@@ -10,6 +10,7 @@
  *
  * Contributors:
  *     Andrew Niefer - IBM Corporation - initial API and implementation
+ *     Tue Ton - support for FreeBSD
  *******************************************************************************/
 package org.eclipse.equinox.launcher;
 
@@ -34,6 +35,12 @@ class Constants {
 	 * Linux-based operating system.
 	 */
 	public static final String OS_LINUX = "linux";//$NON-NLS-1$
+
+	/**
+	 * Constant string (value "freebsd") indicating the platform is running on a
+	 * FreeBSD-based operating system.
+	 */
+	public static final String OS_FREEBSD = "freebsd";//$NON-NLS-1$
 
 	/**
 	 * Constant string (value "macosx") indicating the platform is running on a
