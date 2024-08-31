@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2000, 2007 IBM Corporation and others.
+ * Copyright (c) 2000, 2024 IBM Corporation and others.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -100,9 +100,9 @@
 #define _tgetenv getenv
 #define _tcstol strtol
 #define _tcstok strtok
-#ifndef LINUX
+#if !defined(LINUX) && !defined(FREEBSD)
 #define _totupper toupper
-#endif /* LINUX */
+#endif /* LINUX and FREEBSD */
 #define _tprintf printf
 #define _tstat stat
 #define _tcsncmp strncmp
