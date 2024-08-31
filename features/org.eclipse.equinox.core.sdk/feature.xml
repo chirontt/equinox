@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.equinox.core.sdk"
       label="%featureName"
-      version="3.25.300.qualifier"
+      version="3.25.301.qualifier"
       provider-name="%providerName"
       license-feature="org.eclipse.license"
       license-feature-version="0.0.0">
@@ -89,6 +89,16 @@
    <plugin
          id="org.eclipse.equinox.security.linux.source"
          os="linux"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.equinox.security.freebsd"
+         os="freebsd"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.equinox.security.freebsd.source"
+         os="freebsd"
          version="0.0.0"/>
 
    <plugin
