@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2024 IBM Corporation and others.
+ * Copyright (c) 2006, 2025 IBM Corporation and others.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -10,6 +10,7 @@
  *
  * Contributors:
  *     Andrew Niefer - IBM Corporation - initial API and implementation
+ *     Tue Ton - support for FreeBSD
  *******************************************************************************/
 package org.eclipse.equinox.launcher;
 
@@ -20,6 +21,7 @@ class Constants {
 	public static final String INTERNAL_AMD64 = "amd64"; //$NON-NLS-1$
 	public static final String INTERNAL_OS_SUNOS = "SunOS"; //$NON-NLS-1$
 	public static final String INTERNAL_OS_LINUX = "Linux"; //$NON-NLS-1$
+	public static final String INTERNAL_OS_FREEBSD = "FreeBSD"; //$NON-NLS-1$
 	public static final String INTERNAL_OS_MACOSX = "Mac OS"; //$NON-NLS-1$
 	public static final String INTERNAL_OS_AIX = "AIX"; //$NON-NLS-1$
 	public static final String INTERNAL_OS_HPUX = "HP-UX"; //$NON-NLS-1$
@@ -42,6 +44,12 @@ class Constants {
 	 * Linux-based operating system.
 	 */
 	public static final String OS_LINUX = "linux";//$NON-NLS-1$
+
+	/**
+	 * Constant string (value "freebsd") indicating the platform is running on a
+	 * FreeBSD-based operating system.
+	 */
+	public static final String OS_FREEBSD = "freebsd";//$NON-NLS-1$
 
 	/**
 	 * Constant string (value "aix") indicating the platform is running on an
