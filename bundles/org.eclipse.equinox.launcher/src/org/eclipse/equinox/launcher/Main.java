@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2000, 2025 IBM Corporation and others.
+ * Copyright (c) 2000, 2026 IBM Corporation and others.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -15,6 +15,7 @@
  *     Ericsson AB (Pascal Rapicault) - bug 304132
  *     Rapicorp, Inc - Default the configuration to Application Support (bug 461725)
  *     Lars Vogel <Lars.Vogel@vogella.com> - Bug 221969
+ *     Tue Ton - support for FreeBSD
  *******************************************************************************/
 package org.eclipse.equinox.launcher;
 
@@ -372,6 +373,7 @@ public class Main {
 		return switch (osName) {
 			case Constants.OS_WIN32 -> Constants.WS_WIN32;
 			case Constants.OS_LINUX -> Constants.WS_GTK;
+			case Constants.OS_FREEBSD -> Constants.WS_GTK;
 			case Constants.OS_MACOSX -> Constants.WS_COCOA;
 			default -> Constants.WS_UNKNOWN;
 		};
@@ -388,6 +390,7 @@ public class Main {
 		}
 		String osName = System.getProperty("os.name").toLowerCase(Locale.ROOT); //$NON-NLS-1$
 		return switch (osName) {
+			case Constants.OS_FREEBSD -> Constants.OS_FREEBSD;
 			case Constants.OS_LINUX -> Constants.OS_LINUX;
 			default -> {
 				if (osName.startsWith(Constants.OS_WIN32.substring(0, 3))) {
