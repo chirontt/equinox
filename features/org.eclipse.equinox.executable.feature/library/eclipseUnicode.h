@@ -100,9 +100,9 @@
 #define _tgetenv getenv
 #define _tcstol strtol
 #define _tcstok strtok
-#ifndef LINUX
+#if !defined(LINUX) && !defined(FREEBSD)
 #define _totupper toupper
-#endif /* LINUX */
+#endif /* LINUX and FREEBSD */
 #define _tprintf printf
 #define _tstat stat
 #define _tcsncmp strncmp
